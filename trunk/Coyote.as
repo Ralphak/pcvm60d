@@ -1,21 +1,20 @@
+// Classe dos chefes das fases do jogo, que na verdade são as aparições do Coyote
+
 package  
 {
 	import flash.display.MovieClip;
 	import flash.events.Event;
-	/**
-	 * ...
-	 * @author ...
-	 */
+	
 	public class Coyote extends MovieClip
 	{
 		
-		public function Coyote(nivel:uint=0,posX:int=0,posY:int=0) 
+		public function Coyote(nivel:uint=0,posX:int=0,posY:int=0) // Comando usado para chamar o chefe
 		{
 			this.x = posX
 			this.y = posY
 			Main.referenciar().addChild(this)
 			
-			switch(nivel)
+			switch(nivel)	// Determina qual chefe será chamado, de acordo com o nível da fase
 			{
 				case 1 :
 					Nivel1()
@@ -23,9 +22,9 @@ package
 			}
 		}
 		
-		public function update():void
+		public function update():void	// Faz o chefe sair da fase, caso seja derrotado
 		{
-			if (this.alpha==1)
+			if (this.alpha==1)	// Faz a imagem do chefe "piscar"
 			{
 				this.alpha=0
 			}
@@ -35,7 +34,7 @@ package
 			}
 			
 			this.x -= 2
-			if (this.x <= -50)
+			if (this.x <= -50)	// Remove o chefe quando sai do cenário
 			{
 				Main.referenciar().BO_derrotar = false
 				Main.referenciar().removeChild(this)

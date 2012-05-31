@@ -1,17 +1,16 @@
+// Classe dos botões presentes nos menus do jogo
+
 package  
 {
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
-	/**
-	 * ...
-	 * @author ...
-	 */
+	
 	public class Botao extends MovieClip
 	{
-		var tipo:String
-		var frame:uint
+		var tipo:String	// Determina qual botão será gerado
+		var frame:uint	// Variável responsável por controlar a animação dos botões
 		
-		public function Botao(_tipo:String,posX:int,posY:int) 
+		public function Botao(_tipo:String,posX:int,posY:int) // Comando usado para gerar o botão
 		{
 			tipo = _tipo
 			this.gotoAndStop(tipo)
@@ -25,22 +24,22 @@ package
 			this.addEventListener(MouseEvent.MOUSE_UP, botao_soltar,false,0,true)
 		}
 		
-		private function botao_mudar (e:MouseEvent):void
+		private function botao_mudar (e:MouseEvent):void	// Animação quando o mouse está sobre o botão
 		{
 			this.gotoAndStop(frame+1)
 		}
 
-		private function botao_voltar (e:MouseEvent):void
+		private function botao_voltar (e:MouseEvent):void	// Volta ao frame anterior quando o mouse não está mais sobre o botão
 		{
 			this.gotoAndStop(frame)
 		}
 
-		private function botao_clicar (e:MouseEvent):void
+		private function botao_clicar (e:MouseEvent):void	// Animação quando clica no botão
 		{
 			this.gotoAndStop(frame+2)
 		}
 
-		private function botao_soltar (e:MouseEvent):void
+		private function botao_soltar (e:MouseEvent):void	// Volta ao frame anterior quando solta o botão do mouse
 		{
 			this.gotoAndStop(frame+1)
 		}
